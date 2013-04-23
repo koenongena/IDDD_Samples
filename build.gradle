@@ -1,0 +1,21 @@
+apply plugin: 'idea'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+ext {
+    junitVersion= "4.8.2"
+    springVersion = "3.2.2.RELEASE"
+}
+
+allprojects {
+    apply plugin: 'java'
+    repositories {
+        mavenCentral()
+        maven {url "https://repository.jboss.org/nexus/content/repositories/releases/"}
+        mavenLocal()
+    }
+}
+
+task wrapper(type:Wrapper){
+    gradleVersion =  '1.5'
+}

@@ -1,0 +1,25 @@
+
+
+dependencies {
+    compile "org.springframework:spring-context:${springVersion}"
+    compile 'org.hibernate:hibernate-core:3.5.4-Final'
+    compile 'org.iq80.leveldb:leveldb:0.5'
+    compile 'com.google.code.gson:gson:2.2.2'
+    compile 'com.rabbitmq:amqp-client:3.0.4'
+    compile 'javax.persistence:persistence-api:1.0.2'
+
+    testCompile "junit:junit:${junitVersion}"
+}
+
+task testJar(type: Jar, dependsOn: testClasses) {
+    baseName = "tests-${project.archivesBaseName}"
+    from sourceSets.test.output
+}
+
+configurations {
+    tests
+}
+
+artifacts {
+    tests testJar
+}

@@ -1,0 +1,14 @@
+dependencies {
+    compile project(':iddd_common')
+    compile('org.jboss.resteasy:resteasy-jaxrs-all:2.0.1.GA') {
+        exclude group: "org.scannotation"
+    }
+
+    compile('org.jboss.resteasy:resteasy-cache-core:2.1.0.GA') {
+        exclude group: "org.scannotation"
+    }
+
+
+    testCompile "junit:junit:${junitVersion}"
+    testCompile project(path: ':iddd_common', configuration: 'tests')
+}

@@ -1,0 +1,16 @@
+dependencies {
+    compile project(":iddd_common")
+    compile "org.springframework:spring-tx:${springVersion}"
+    compile 'javax.persistence:persistence-api:1.0.2'
+    compile 'javax.ws.rs:jsr311-api:1.1.1'
+
+    compile('org.jboss.resteasy:resteasy-cache-core:2.1.0.GA') {
+        exclude group: "org.scannotation"
+    }
+
+    compile 'org.aspectj:aspectjweaver:1.7.2'
+
+
+    testCompile "junit:junit:${junitVersion}"
+    testCompile project(path: ':iddd_common', configuration: 'tests')
+}
